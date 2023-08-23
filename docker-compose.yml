@@ -1,0 +1,18 @@
+version: "3"
+services:
+  graphql:
+    build: .
+    ports:
+      - "8088:8080"
+    working_dir: /app
+    tty: true
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    networks:
+      - reshine
+
+networks:
+  reshine:
+    external: true
